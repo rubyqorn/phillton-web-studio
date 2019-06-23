@@ -13,7 +13,7 @@
 	<!-- Navigation -->
 
 	<nav>
-		<div class="navbar navbar-dark bg-primary navbar-expand-lg fixed-top">
+		<div class="navbar navbar-dark bg-primary navbar-expand-lg">
 			<a href="/" class="navbar-brand">Phillton</a>
 			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent">
 				<span class="navbar-toggler-icon"></span>
@@ -21,9 +21,9 @@
 			<div class="collapse navbar-collapse" id="navbarContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="navbar-item"><a href="/" class="nav-link">Home</a></li>
-					<li class="navbar-item"><a href="/" class="nav-link">Works</a></li>
-					<li class="navbar-item"><a href="/" class="nav-link">Services</a></li>
-					<li class="navbar-item"><a href="/" class="nav-link">About</a></li>
+					<li class="navbar-item"><a href="/works.php" class="nav-link">Works</a></li>
+					<li class="navbar-item"><a href="/services.php" class="nav-link">Services</a></li>
+					<li class="navbar-item"><a href="/about.php" class="nav-link">About</a></li>
 				</ul>
 			</div>
 		</div>

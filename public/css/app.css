@@ -79,10 +79,53 @@ nav .nav-link:hover {
 }
 
 #contacts .info {
-	color: grey;
+	color: #807d7d;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 200;
 	font-size: 15px;
+}
+
+#works {
+	margin: 60px 0;
+}
+
+#works h2.text-center {
+	font-family: 'Lalezar', sans-serif;
+	color: #333;
+}
+
+#works .blue-hr {
+	border: 1px solid #87cefb;
+	width: 50%;
+}
+
+#works .col-lg-4 {
+	margin: 20px 0;
+}
+
+#works .col-lg-4 .shadow {
+	padding: 2%;
+}
+
+#works .col-lg-4 .shadow .info a.nav-link {
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	margin: 10px 0 0 0;
+}
+
+#works .col-lg-4 .shadow .info p.text-left {
+	color: #807d7d;
+	font-family: 'Montserrat', sans-serif;
+	font-size: small;
+	font-weight: 200;
+}
+
+#works .col-lg-4 .shadow .info .fa-clock {
+	margin: 0 7px;
+}
+
+#works .pagination {
+	margin: 20px 0;
 }
 
 footer {
