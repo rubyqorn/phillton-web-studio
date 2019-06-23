@@ -9,9 +9,14 @@ nav .navbar-brand {
 }
 
 nav .nav-link {
-	color: #fff !important;
 	font-family: 'Raleway', sans-serif;
 	font-weight: 200;
+	color: #fff !important;
+}
+
+nav .nav-link:hover {
+	color: #f4f4f4 !important;
+	transition: all 0.6s;
 }
 
 #header {
@@ -26,4 +31,70 @@ nav .nav-link {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 20px;
+}
+
+#short-about {
+	margin: 40px 0;
+}
+
+#short-about h2.text-center {
+	color: #333;
+	font-family: 'Lalezar', sans-serif;
+}
+
+#short-about .blue-hr {
+	border: 1px solid #87cefb;
+	width: 50%
+}
+
+#short-about .col-lg-6 {
+	margin: 40px 0;
+}
+
+#contacts {
+	margin: 40px 0;
+}
+
+#contacts .col-lg-12 {
+	margin: 30px 0;
+}
+
+#contacts h2.text-center {
+	color: #333;
+	font-family: 'Lalezar', sans-serif;
+}
+
+#contacts .blue-hr {
+	border: 1px solid #87cefb;
+	width: 50%;
+}
+
+#contacts .control-label {
+	font-family: 'Raleway', sans-serif;
+}
+
+#contacts .fas {
+	color: #666;
+	margin: 0 10px;
+}
+
+#contacts .info {
+	color: grey;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 200;
+	font-size: 15px;
+}
+
+footer {
+	height: 150px;
+	padding: 2%;
+	background-color: #007bff;
+}
+
+footer .fab {
+	padding: 0 5px;
+}
+
+footer p.text-white {
+	margin: 10px 0 0 0;
 }
