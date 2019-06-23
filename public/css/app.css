@@ -1,0 +1,29 @@
+body{
+	height: 100%;
+	width: 100%;
+}
+
+nav .navbar-brand {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+}
+
+nav .nav-link {
+	color: #fff !important;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 200;
+}
+
+#header {
+	margin: 0 0 40px 0;
+}
+
+#header .carousel {
+	opacity: 0.8;
+}
+
+#header p.text-white {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+}
