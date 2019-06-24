@@ -39,10 +39,10 @@
 
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div class="card bg-dark">
-						<a href="/"><img src="/img/site-dev.png" alt="" class="w-100 card-img"></a>
+						<a href="/service.php"><img src="/img/site-dev.png" alt="" class="w-100 card-img"></a>
 						<div class="card-img-overlay">
 							<h2 class=" text-center">
-								<a href="/" class="nav-link text-dark font-weight-bold">Разработка сайтов</a>
+								<a href="/service.php" class="nav-link text-dark font-weight-bold">Разработка сайтов</a>
 							</h2>
 							<p class="card-text font-weight-bold">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, non.</p>
 						</div>
