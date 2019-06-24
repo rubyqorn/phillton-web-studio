@@ -1,0 +1,18 @@
+{
+    "name": "rubyqorn/phillton-web-studio",
+    "description": "This is a web application about web studio which create web applications",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Hideger",
+            "email": "antonhideger1337@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Phillton\\": "app/"
+        }
+    }
+}

@@ -1,2 +1,6 @@
 #error log file
 error.log
+#db properties
+db.php
+#vendor directory with loaded packages and autoload classes
+vendor
