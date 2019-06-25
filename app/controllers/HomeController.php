@@ -9,6 +9,6 @@ class HomeController extends Controller
 	public function index()
 	{
 		$title = 'Phillton - прогрессивная веб студия';
-		return $this->view->render('home', compact('title'));	
+		return $this->view->render('home', compact('title', 'data'));
 	}
 }
