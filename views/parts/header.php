@@ -20,10 +20,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="navbar-item"><a href="/" class="nav-link">Home</a></li>
-					<li class="navbar-item"><a href="/works.php" class="nav-link">Works</a></li>
-					<li class="navbar-item"><a href="/services.php" class="nav-link">Services</a></li>
-					<li class="navbar-item"><a href="/about.php" class="nav-link">About</a></li>
+					<li class="navbar-item"><a href="/home/index" class="nav-link">Home</a></li>
+					<li class="navbar-item"><a href="/works/index" class="nav-link">Works</a></li>
+					<li class="navbar-item"><a href="/services/index" class="nav-link">Services</a></li>
+					<li class="navbar-item"><a href="/about/index" class="nav-link">About</a></li>
 				</ul>
 			</div>
 		</div>

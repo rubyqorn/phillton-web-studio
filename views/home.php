@@ -15,28 +15,24 @@
 					<img src="/img/work-space-1.png" alt="" class="w-100">
 					<div class="carousel-caption">
 						<h3 class="display-4 text-white font-weight-bold">This is our work-space</h3>
-						<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, magnam.</p>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="/img/work-space-2.png" alt="" class="w-100">
 					<div class="carousel-caption">
 						<h3 class="display-4 text-white font-weight-bold">This is our work-space</h3>
-						<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, deleniti.</p>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="/img/work-space-3.png" alt="" class="w-100">
 					<div class="carousel-caption">
 						<h3 class="display-4 text-white font-weight-bold">This is our work-space</h3>
-						<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, doloremque.</p>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="/img/work-space-4.png" alt="" class="w-100">
 					<div class="carousel-caption">
 						<h3 class="display-4 text-white font-weight-bold">This is our work-space</h3>
-						<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.</p>
 					</div>
 				</div>
 				<a href="#carousel" class="carousel-control-prev" role="button" data-slide="prev">
