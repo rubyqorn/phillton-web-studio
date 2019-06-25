@@ -2,6 +2,7 @@
 namespace Phillton\Controllers;
 
 use Phillton\Core\Controller;
+use Phillton\Models\User;
 
 class HomeController extends Controller
 { 
