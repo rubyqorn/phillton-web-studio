@@ -5,19 +5,24 @@
 	<section id="service">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12 float-left">
-					<img src="/img/site-dev.png" alt="site dev" class="w-100 rounded">
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12 float-right">
-					<h3 class="text-center font-weight-bold text-dark">Для чего нужно создавать сайт?</h3>
-					<hr class="blue-hr">
-					<p class="text-dark text-left">
-						Сегодня, когда абсолютное большинство людей начинает поиск нужного товара или услуги с поисковых систем, отсутствие сайта компании, в лучшем случае, вызывает удивление. В худшем это потеря огромного сегмента потенциальных клиентов и недополученная прибыль.
-					</p>
-					<p class="text-dark text-left">
-						Даже если у вас сугубо офлайн бизнес и вы не ведете продаж в интернете, сайт обеспечивает функцию представительства, заявляет о вашем существовании и дает шанс побороться с конкурентами за клиентов, а также предоставить информацию для партнеров. Сайт должен отвечать параметрам поисковых систем, таких как «Яндекс», Google, и ряда других, менее популярных – все это учитывается при разработке продающих сайтов.
-					</p>
-				</div>
+				<?php foreach($services as $service): ?>
+
+					<div class="col-lg-6 col-md-6 col-sm-12 float-left">
+						<img src="<?php echo $service['image']; ?>" alt="<?php echo $service['title']; ?>" class="w-100 rounded">
+						<p class="text-left text-muted p-2">
+							<?php echo $service['preview_text']; ?>
+						</p>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 float-right">
+						<h3 class="text-center font-weight-bold text-dark">Почему вам нужна эта услуга?</h3>
+						<hr class="blue-hr">
+						<p class="text-dark text-left">
+							<?php echo $service['description']; ?>
+						</p>
+					</div>
+
+				<?php endforeach; ?>
+
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-lg-7 col-md-7 col-sm-12 contact-form">

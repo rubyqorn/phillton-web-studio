@@ -5,6 +5,9 @@ use Phillton\Core\Controller;
 
 class AboutController extends Controller
 {
+	/**
+	* @return about page
+	*/ 
 	public function index()
 	{
 		$title = 'Больше информации о нас';

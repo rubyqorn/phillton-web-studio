@@ -2,10 +2,12 @@
 namespace Phillton\Controllers;
 
 use Phillton\Core\Controller;
-use Phillton\Models\User;
 
 class HomeController extends Controller
 { 
+	/**
+	* @return home page
+	*/ 
 	public function index()
 	{
 		$title = 'Phillton - прогрессивная веб студия';
