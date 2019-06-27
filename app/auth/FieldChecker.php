@@ -15,12 +15,12 @@ class FieldChecker implements CheckFields
 	*/ 
 	public function checkEmailField($field)
 	{
-		$email = $this->getFieldName($field);
+		$email = $this->getFieldName(htmlspecialchars(trim($field)));
 
 		if (preg_match('#([a-zA-Z0-9_])@(yandex|mail|gmail)\.(ru|com|io)#', $email)) {
-			echo $email;
+			return $email;
 		} else {
-			echo 'Поле почты заполнено в неправильном формате';
+			die('Поле почты заполнено в неправильном формате');
 		}
 	}
 
@@ -34,12 +34,12 @@ class FieldChecker implements CheckFields
 	*/
 	public function checkPhoneField($field)
 	{
-		$phone = $this->getFieldName($field);
+		$phone = $this->getFieldName(htmlspecialchars(trim($field)));
 
 		if (preg_match('#(\+[0-9]{1}\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2})#', $phone)) {
 			echo $phone;
 		} else {
-			echo 'Поле телефонного номера заполнено в неправильном формате';
+			die('Поле телефонного номера заполнено в неправильном формате');
 		}
 	}
 
@@ -56,11 +56,11 @@ class FieldChecker implements CheckFields
 	*/ 
 	public function checkTextField($field, $type)
 	{
-		$text = $this->getFieldName(strlen($field));
+		$text = $this->getFieldName(htmlspecialchars(strlen(trim($field))));
 
 		if ($type == 'input') {
 			if ($text < 6 || $text > 20) {
-				echo 'Поле текста не должно быть меньше 6 и больше 20 символов';
+				die('Поле текста не должно быть меньше 6 и больше 20 символов');
 			} else {
 				return $text;
 			} 
@@ -68,7 +68,7 @@ class FieldChecker implements CheckFields
 
 		if ($type == 'textarea') {
 			if ($text < 100 || $text > 200) {
-				echo 'Поле текста не должно быть меньше 100 и больше 200 символов';
+				die('Поле текста не должно быть меньше 100 и больше 200 символов');
 			} else {
 				return $text;
 			}

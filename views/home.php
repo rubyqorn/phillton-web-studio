@@ -87,7 +87,7 @@
 				</div>
 
 				<div class="col-lg-8 col-md-8 col-sm-12">
-					<form action="/" class="form-group" method="post">
+					<form action="/home/contact" class="form-group" method="post">
 						<div class="form-group">
 							<label for="email" class="control-label col-xs-2 font-weight-bold text-dark">Ваша почта</label>
 							<input type="email" class="form-control" name="email" placeholder="your@email.com">

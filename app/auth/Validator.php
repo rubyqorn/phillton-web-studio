@@ -24,6 +24,6 @@ abstract class Validator
 	*/ 
 	private function setFieldChecker()
 	{
-		return $this->email = new FieldChecker();
+		return $this->field = new FieldChecker();
 	}
 }
