@@ -36,7 +36,7 @@ class User extends Model
 			
 			$query = $this->customizeTable(
 				'INSERT INTO users (name, email, password) VALUES (?,?,?)',
-				[$_POST['name'], $_POST['email'], md5($_POST['password'])]
+				[$_POST['name'], $_POST['email'], password_hash($_POST['password'], PASSWORD_DEFAULT)]
 			);
 
 			if ($query == TRUE) {
@@ -45,4 +45,41 @@ class User extends Model
 
 		}
 	}
+
+	/**
+	* Check authorization process. If authorization
+	* not equal false we can select all user data
+	* by email which was passed in email input. Also
+	* we do compare password from db table and password 
+	* from input. If $verify is true and user role id 
+	* doesn't equal 2 we can create a user session.
+	*
+	* @return user session 
+	*/ 
+	public function login()
+	{
+		$login = $this->form->authorizationProcess($_POST);
+
+		if ($login !== FALSE) {
+			
+			$query = $this->selectRow(
+				'SELECT * FROM users WHERE email = ?',
+				[$_POST['email']]
+			);
+
+			$verify = password_verify($_POST['password'], $query['0']['password']);
+
+			if ($verify == TRUE) {
+				if ($query['0']['role_id'] == 2) {
+					die('У вас нет привелегий находиться в этой дирректории');
+				} else {
+					return $_SESSION['user'] = $query['0']['name'];
+				}
+			} else {
+				die('Неправильная почта или пароль');
+			}
+			
+		}
+	}
+
 }

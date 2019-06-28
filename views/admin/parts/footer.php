@@ -1,3 +1,11 @@
+	<footer class="w-100 h-100 bg-dark p-3">
+		<div class="col-lg-12">
+			<p class="text-white text-center font-weight-bold">&copy; Copyright Phillton</p>
+			<p class="text-center text-white font-weight-bold">Designed by Anton Hideger</p>
+		</div>
+	</footer>
+
+
 	<!-- Footer -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>

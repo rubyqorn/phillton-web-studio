@@ -63,7 +63,8 @@ class HomeController extends Controller
 			return $this->view->render('admin/dashboard', compact('title'));
 		}
 
-		header('Location: /home/login');
+		return header('Location: /home/login');
+		 
 	}
 
 	/**
@@ -75,6 +76,19 @@ class HomeController extends Controller
 	{
 		$title = 'Войти';
 		return $this->view->render('login', compact('title'));
+	}
+
+	/**
+	* Authorization process
+	*
+	* @return redirect on admin page
+	* if user have permissions
+	*/ 
+	public function auth()
+	{
+		if ($this->user->login() == TRUE) {
+			return header('Location: /home/admin');
+		}
 	}
 	
 	/**
@@ -97,6 +111,20 @@ class HomeController extends Controller
 	{
 		if ($this->user->registration() == TRUE) {
 			return header('Location: /home/login');
+		}
+	}
+
+	/**
+	* Delete session and redirect on home
+	* page
+	*
+	* @return redirect on home page 
+	*/ 
+	public function logout()
+	{
+		if (isset($_SESSION['user'])) {
+			unset($_SESSION['user']);
+			return header('Location: /home/index');
 		}
 	}
 }

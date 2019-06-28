@@ -39,7 +39,7 @@ abstract class Model extends Database
 	{
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute($bindings);
-		return $stmt->fetchAll();
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 
 	/**

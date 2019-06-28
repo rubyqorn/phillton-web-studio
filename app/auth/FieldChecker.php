@@ -87,10 +87,10 @@ class FieldChecker implements CheckFields
 	*/ 
 	public function checkPasswordField($field)
 	{
-		$password = $this->getFieldName(strlen($field));
+		$password = $this->getFieldName(htmlspecialchars(strlen($field)));
 
 		if ($password < 6) {
-			die('Поле с паролем не должно быть меньше 6 символов: ' . $password);
+			die('Поле с паролем не должно быть меньше 6 символов');
 		} else {
 			return $password;
 		}

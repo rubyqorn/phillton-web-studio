@@ -137,4 +137,42 @@ class Form extends Validator
 			}
 		}
 	}
+
+	/**
+	* Check for fields was not empty and 
+	* user data was introduced correctly
+	*
+	* @param $fields array $_POST
+	*
+	* @return error or success message
+	*/ 
+	public function authorizationProcess(array $fields)
+	{
+		$this->validateLoginForm($fields);
+
+		if ($this->validate == FALSE) {
+			return $this->message;
+		}
+
+		return $this->message = 'Вы успешно вошли в свой аккаунт';
+	}
+
+	/**
+	* Fields validation
+	*
+	* @param $fields array
+	*
+	* @return validated fields
+	*/ 
+	private function validateLoginForm($fields)
+	{
+		if (!empty($fields) && is_array($fields)) {
+			if (isset($fields['login'])) {
+				$this->validate = $this->field->checkEmailField($fields['email']);
+				$this->validate = $this->field->checkPasswordField($fields['password']);
+				return $this->validate;
+			}
+		}
+	}
+
 }
