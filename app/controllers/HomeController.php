@@ -24,7 +24,7 @@ class HomeController extends Controller
 	public function contact()
 	{
 		$validation = new Form();
-		$validation->validateContactForm($_POST);
+		$validation->sendEmail($_POST);
 		return header('Location: /home/index');
 	}
 }

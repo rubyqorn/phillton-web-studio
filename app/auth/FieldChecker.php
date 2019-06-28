@@ -37,7 +37,7 @@ class FieldChecker implements CheckFields
 		$phone = $this->getFieldName(htmlspecialchars(trim($field)));
 
 		if (preg_match('#(\+[0-9]{1}\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2})#', $phone)) {
-			echo $phone;
+			return $phone;
 		} else {
 			die('Поле телефонного номера заполнено в неправильном формате');
 		}
@@ -59,7 +59,7 @@ class FieldChecker implements CheckFields
 		$text = $this->getFieldName(htmlspecialchars(strlen(trim($field))));
 
 		if ($type == 'input') {
-			if ($text < 6 || $text > 20) {
+			if ($text < 6 || $text > 30) {
 				die('Поле текста не должно быть меньше 6 и больше 20 символов');
 			} else {
 				return $text;

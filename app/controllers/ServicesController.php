@@ -39,4 +39,14 @@ class ServicesController extends Controller
 		$services = $this->model->getServiceById($_GET['id']);
 		return $this->view->render('service', compact('title', 'services'));
 	}
+
+	/**
+	* @return success message and redirect
+	* on a home page
+	*/ 
+	public function order()
+	{
+		$order = $this->model->orderHandler();
+		return header('Location: /home/index');	
+	}
 }

@@ -25,7 +25,7 @@
 				
 				<!-- Modal windows -->
 
-					<div class="modal fade" id="modal- <?php echo $work['id']; ?>" tabindex="-1" role="dialog">
+					<div class="modal fade" id="modal-<?php echo $work['id']; ?>" tabindex="-1" role="dialog">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -35,7 +35,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<img src="/img/w-1.png" alt="" class="w-100 rounded">
+									<img src="<?php echo $work['image']; ?>" alt="" class="w-100 rounded">
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-outline-warning" data-dismiss="modal">

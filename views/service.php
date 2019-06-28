@@ -28,21 +28,21 @@
 				<div class="col-lg-7 col-md-7 col-sm-12 contact-form">
 					<h3 class="text-center">Чтобы оставить заявку, заполните форму</h3>
 					<hr class="blue-hr">
-					<form action="/" class="form-group" method="post">
+					<form action="/services/order" class="form-group" method="post">
 						<div class="form-group">
 							<label for="email" class="control-label col-xs-2">Ваша почта</label>
 							<input type="email" name="email" class="form-control" placeholder="your@email.com">
 						</div>
 						<div class="form-group">
 							<label for="phone" class="control-label col-xs-2">Номер телефона</label>
-							<input type="tel" name="phone" class="form-control" placeholder="+7 (900) 800-70-60">
+							<input type="tel" name="phone" class="form-control" placeholder="+7(900)800-70-60">
 						</div>
 						<div class="form-group">
 							<label for="name" class="control-label col-xs-2">Ваше имя</label>
 							<input type="text" name="name" class="form-control" placeholder="Иван Сидоров">
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-outline-info" name="submit">Отправить</button>
+							<button type="submit" class="btn btn-outline-info" name="send-order">Отправить</button>
 						</div>
 					</form>
 				</div>
