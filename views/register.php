@@ -11,7 +11,7 @@
 							<h4 class="text-center text-dark font-weight-bold">Регистрация</h4>
 						</div>
 						<div class="card-body">
-							<form action="/home/registration" class="form-group">
+							<form action="/home/registration" class="form-group" method="post">
 								<div class="form-group">
 									<label for="name" class="control-label col-xs-2 text-dark">Ваше имя</label>
 									<input type="text" class="form-control" name="name" placeholder="Ivan Sidorov">

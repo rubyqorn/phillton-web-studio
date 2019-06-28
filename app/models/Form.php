@@ -14,7 +14,7 @@ class Form extends Validator
 	/**
 	* @var string
 	*/ 
-	public $message = '';
+	public $message = 'Что-то пошло не так';
 
 
 	/**
@@ -34,7 +34,7 @@ class Form extends Validator
 			return mail('phillton_info@gmail.com', $fields['subject'], $fields['message']);
 		}
 
-		return $this->message = 'Что-то пошло не так';
+		return $this->message;
 	}
 
 
@@ -62,6 +62,8 @@ class Form extends Validator
 	* Return success message if validate property
 	* doesn't equal null
 	*
+	* @param $fields array $_POST
+	*
 	* @return $this->message
 	*/ 
 	public function sendOrder(array $fields)
@@ -72,7 +74,7 @@ class Form extends Validator
 			return $this->message = 'Ваш заказ обрабатывается. Ожидайте ответа в течение 24 часов';
 		}
 
-		return $this->message = 'Что-то пошло не так';
+		return $this->message;
 	}
 
 
@@ -90,6 +92,47 @@ class Form extends Validator
 				$this->validate = $this->field->checkEmailField($fields['email']);
 				$this->validate = $this->field->checkPhoneField($fields['phone']);
 				$this->validate = $this->field->checkTextField($fields['name'], 'input');
+				return $this->validate;
+			}
+		}
+	}
+
+
+	/**
+	* Return success message if validated fields
+	* don't equal false. And default message if
+	* validated fields returned false
+	*
+	* @param $fields array $_POST
+	*
+	* @return success
+	*/ 
+	public function registrationProcess(array $fields)
+	{
+		$this->validateRegitrationForm($fields);
+
+		if ($this->validate !== FALSE) {
+			return $this->message = 'Вы успешно зарегистрированны';
+		}
+
+		return $this->message;
+	}
+
+
+	/**
+	* Checking passed fields 
+	*
+	* @param $fields array
+	*
+	* @return validated fields
+	*/ 
+	private function validateRegitrationForm($fields)
+	{
+		if (!empty($fields) && is_array($fields)) {
+			if (isset($fields['registration'])) {
+				$this->validate = $this->field->checkTextField($fields['name'], 'input');
+				$this->validate = $this->field->checkEmailField($fields['email']);
+				$this->validate = $this->field->checkPasswordField($fields['password']);
 				return $this->validate;
 			}
 		}

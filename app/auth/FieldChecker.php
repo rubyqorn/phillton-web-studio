@@ -75,8 +75,30 @@ class FieldChecker implements CheckFields
 		}
 	}
 
+
 	/**
-	* Get email field and empty field check
+	* Check length password field. If field have
+	* symbols less than 6 we just breaking further
+	* execution of this method
+	*
+	* @param $field string
+	*
+	* @return password field 
+	*/ 
+	public function checkPasswordField($field)
+	{
+		$password = $this->getFieldName(strlen($field));
+
+		if ($password < 6) {
+			die('Поле с паролем не должно быть меньше 6 символов: ' . $password);
+		} else {
+			return $password;
+		}
+
+	}
+
+	/**
+	* Get field and empty field check
 	*
 	* @param $field string
 	*

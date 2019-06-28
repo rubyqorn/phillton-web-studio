@@ -2,10 +2,33 @@
 namespace Phillton\Controllers;
 
 use Phillton\Core\Controller;
-use Phillton\Models\Form;
+use Phillton\Models\{
+	Form,
+	User
+};
 
 class HomeController extends Controller
 { 
+	/**
+	* @var Form object Phillton\Models\Form
+	*/ 
+	private $form = null;
+
+	/**
+	* @var User object Phillton\Models\User
+	*/ 
+	private $user = null;
+
+	/**
+	* @return setted new objects
+	*/ 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->form = new Form();
+		$this->user = new User();
+	}
+
 	/**
 	* @return home page
 	*/ 
@@ -23,8 +46,7 @@ class HomeController extends Controller
 	*/ 
 	public function contact()
 	{
-		$validation = new Form();
-		$validation->sendEmail($_POST);
+		$this->form->sendEmail($_POST);
 		return header('Location: /home/index');
 	}
 
@@ -64,5 +86,17 @@ class HomeController extends Controller
 	{
 		$title = 'Зарегистрироваться';
 		return $this->view->render('register', compact('title'));
+	}
+
+	/**
+	* Registration proccess
+	*
+	* @return redirect on login page
+	*/ 
+	public function registration()
+	{
+		if ($this->user->registration() == TRUE) {
+			return header('Location: /home/login');
+		}
 	}
 }
