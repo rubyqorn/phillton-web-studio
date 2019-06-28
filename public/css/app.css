@@ -207,6 +207,11 @@ nav .nav-link:hover {
 	color: #807d7d;
 }
 
+#auth {
+	padding: 2%;
+	min-height: 500px;
+}
+
 footer {
 	height: 150px;
 	padding: 2%;
