@@ -51,23 +51,6 @@ class HomeController extends Controller
 	}
 
 	/**
-	* Get admin main page if is set
-	* user session 
-	*
-	* @return admin page
-	*/ 
-	public function admin()
-	{
-		if (isset($_SESSION['user'])) {
-			$title = 'Панель администрирования';
-			return $this->view->render('admin/dashboard', compact('title'));
-		}
-
-		return header('Location: /home/login');
-		 
-	}
-
-	/**
 	* Login
 	*
 	* @return login page
@@ -87,7 +70,7 @@ class HomeController extends Controller
 	public function auth()
 	{
 		if ($this->user->login() == TRUE) {
-			return header('Location: /home/admin');
+			return header('Location: /panel/index');
 		}
 	}
 	

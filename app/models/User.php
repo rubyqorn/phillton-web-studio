@@ -33,6 +33,14 @@ class User extends Model
 		$register = $this->form->registrationProcess($_POST);
 
 		if ($register !== FALSE) {
+
+			$queryForCheck = $this->selectAll('SELECT email FROM users');
+			
+			for ($i = 0; $i <= count($queryForCheck); $i++) { 
+				if (in_array($_POST['email'], $queryForCheck[$i])) {
+					die('Пользователь с такой почтой уже существует');
+				} 
+			}
 			
 			$query = $this->customizeTable(
 				'INSERT INTO users (name, email, password) VALUES (?,?,?)',
@@ -71,7 +79,7 @@ class User extends Model
 
 			if ($verify == TRUE) {
 				if ($query['0']['role_id'] == 2) {
-					die('У вас нет привелегий находиться в этой дирректории');
+					die('У вас нет привелегий находиться в этой директории');
 				} else {
 					return $_SESSION['user'] = $query['0']['name'];
 				}

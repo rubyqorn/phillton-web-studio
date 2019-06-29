@@ -14,20 +14,55 @@
 
 	<nav>
 		<div class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a href="/home/admin" class="navbar-brand">Admin Panel</a>
+			<a href="/panel/index" class="navbar-brand text-white font-weight-bold">Admin Panel</a>
 			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="/" class="nav-link">Главная</a></li>
-					<li class="nav-item"><a href="/" class="nav-link">Заказы</a></li>
-					<li class="nav-item"><a href="/" class="nav-link">Пользователи</a></li>
-					<li class="nav-item"><a href="/" class="nav-link">Услуги</a></li>
-					<li class="nav-item"><a href="/" class="nav-link">Работы</a></li>
+					<li class="nav-item">
+						<a href="/panel/index" class="nav-link">
+							<i class="fas fa-home"></i> 
+							Главная
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/panel/orders" class="nav-link">
+							<i class="fas fa-donate"></i> 
+							Заказы
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/panel/users" class="nav-link">
+							<i class="fas fa-user-circle"></i> 
+							Пользователи
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/panel/services" class="nav-link">
+							<i class="fas fa-layer-group"></i> 
+							Услуги
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="/panel/works" class="nav-link">
+							<i class="fas fa-cog"></i>
+							Работы
+						</a>
+					</li>
 					<?php if (isset($_SESSION['user'])): ?>
-						<li class="nav-item"><a href="#" class="nav-link"><?php echo $_SESSION['user']; ?></a></li>
-						<li class="nav-item"><a href="/home/logout" class="nav-link">Logout</a></li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">
+								<i class="far fa-user-circle"></i>
+								<?php echo $_SESSION['user']; ?>	
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/home/logout" class="nav-link">
+								<i class="fas fa-sign-out-alt"></i>
+								Logout
+							</a>
+						</li>
 					<?php endif ?>
 				</ul>
 			</div>

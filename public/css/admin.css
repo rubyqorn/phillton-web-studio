@@ -3,6 +3,52 @@ body {
 	width: 100%;
 }
 
+.green-hr {
+	border: 1px solid #34ef64;
+	float: left;
+	width: 100px;
+}
+
 #dashboard {
-	padding: 2%;
+	margin: 40px 0;
+}
+
+#dashboard .col-lg-12 {
+	margin: 25px 0;
 }	
+
+nav .nav-link:hover {
+	color: #fff !important;
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+#dashboard #count-users {
+	background-color: #5399e4;
+	height: 100%;
+}
+
+#dashboard #count-orders {
+	background-color: #34ef64;
+	height: 100%;
+}
+
+#dashboard #last-orders {
+	margin: 30px 0;
+}
+
+#dashboard #last-users {
+	margin: 30px 0;
+}
+
+#orders, #users, #services, #works {
+	margin: 40px 0;
+}
+
+#orders #pagination, #users #pagination, #services #pagination{
+	margin: 30px 0;
+}
+
+#services #add-button {
+	margin: 0 0 20px 0;
+}
