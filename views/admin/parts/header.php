@@ -27,25 +27,25 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="/panel/orders" class="nav-link">
+						<a href="/panel/orders?page=1" class="nav-link">
 							<i class="fas fa-donate"></i> 
 							Заказы
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="/panel/users" class="nav-link">
+						<a href="/panel/users?page=1" class="nav-link">
 							<i class="fas fa-user-circle"></i> 
 							Пользователи
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="/panel/services" class="nav-link">
+						<a href="/panel/services?page=1" class="nav-link">
 							<i class="fas fa-layer-group"></i> 
 							Услуги
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="/panel/works" class="nav-link">
+						<a href="/panel/works?page=1" class="nav-link">
 							<i class="fas fa-cog"></i>
 							Работы
 						</a>

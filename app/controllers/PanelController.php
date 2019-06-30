@@ -2,9 +2,50 @@
 namespace Phillton\Controllers;
 
 use Phillton\Core\Controller;
+use Phillton\Models\{
+	Work,
+	Service,
+	User,
+	Order,
+};
 
 class PanelController extends Controller
 {
+	/**
+	* @var Work object Phillton\Models\Work
+	*/ 
+	private $work;
+
+	/**
+	* @var Services object Phillton\Models\Service
+	*/ 
+	private $service;
+
+	/**
+	* @var User object Phillton\Models\User
+	*/ 
+	private $user;
+
+	/**
+	* @var Order object Phillton\Models\Order
+	*/ 
+	private $order;
+
+	/**
+	* Create models object
+	*
+	* @return models object
+	*/ 
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->work = new Work();
+		$this->service = new Service();
+		$this->user = new User();
+		$this->order = new Order();
+	}
+
 	/**
 	* Get admin main page if is set
 	* user session 
@@ -28,9 +69,12 @@ class PanelController extends Controller
 	*/ 
 	public function orders()
 	{
+		$orders = $this->order->limitedOrders();
+		$links = $this->order->links(4);
+
 		if (isset($_SESSION['user'])) {
 			$title = 'Таблицы заказов';
-			return $this->view->render('admin/orders-table', compact('title'));
+			return $this->view->render('admin/orders-table', compact('title', 'links', 'orders'));
 		}
 		
 		return header('Location: /home/login');
@@ -65,22 +109,25 @@ class PanelController extends Controller
 		}
 
 		return header('Location: /home/login');
-		
 	}
 
 	/**
-	* Works table
+	* Works table with pagination
 	*
 	* @return table with works
 	*/ 
 	public function works()
 	{
+		$works = $this->work->limitedWorks();
+		$pageLinks = $this->work->links(4);
+
 		if (isset($_SESSION['user'])) {
 			$title = 'Таблица с работами';
-			return $this->view->render('admin/works-table', compact('title'));
+			return $this->view->render('admin/works-table', compact('title', 'works', 'pageLinks'));
 		}
 
 		return header('Location: /home/login');
 		
 	}
+
 }

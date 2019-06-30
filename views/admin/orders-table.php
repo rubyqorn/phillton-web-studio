@@ -27,78 +27,73 @@
 							</thead>
 
 							<tbody class="text-muted">
-								<tr>
-									<td>Ready</td>
-									<td>anton_1337322@mail.ru</td>
-									<td>+7(900)800-71-02</td>
-									<td>Anton Hideger</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<button type="submit" class="btn btn-outline-success">Edit</button>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Ready</td>
-									<td>anton_1337322@mail.ru</td>
-									<td>+7(900)800-71-02</td>
-									<td>Anton Hideger</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<button type="submit" class="btn btn-outline-success">Edit</button>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Ready</td>
-									<td>anton_1337322@mail.ru</td>
-									<td>+7(900)800-71-02</td>
-									<td>Anton Hideger</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<button type="submit" class="btn btn-outline-success">Edit</button>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Ready</td>
-									<td>anton_1337322@mail.ru</td>
-									<td>+7(900)800-71-02</td>
-									<td>Anton Hideger</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-											<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Ready</td>
-									<td>anton_1337322@mail.ru</td>
-									<td>+7(900)800-71-02</td>
-									<td>Anton Hideger</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-											<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
+								<?php foreach ($orders as $order): ?>
+
+									<tr>
+										<td><?php echo $order['status_id']; ?></td>
+										<td><?php echo $order['email']; ?></td>
+										<td><?php echo $order['phone_number']; ?></td>
+										<td><?php echo $order['customer']; ?></td>
+										<td>
+											<form action="/" class="form-group" method="post">
+												<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-<?php echo $order['id']; ?>">Edit</button>
+											</form>
+										</td>
+									</tr>
+
+								<?php endforeach ?>
 							</tbody>
  
 						</table>
+
+						<!-- Modals -->
+						<?php foreach ($orders as $order): ?>	
+							<div class="modal fade" id="edit-<?php echo $order['id']; ?>" tabindex="-1" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="text-left text-black-50">Редактирование</h4>
+										</div>
+										<form action="/" class="form-group" method="post">
+											<div class="modal-body">
+												<div class="form-group">
+													<label for="status" class="control-label col-xs-2 text-dark font-weight-bold">Статус</label>
+													<input type="text" class="form-control" name="status" value="<?php echo $order['name']; ?>">
+												</div>
+												<div class="form-group">
+													<label for="email" class="control-label col-xs-2 text-dark font-weight-bold">Почта</label>
+													<input type="email" class="form-control" name="email" value="<?php echo $order['email']; ?>" readonly>
+												</div>
+												<div class="form-group">
+													<label for="phone" class="control-label col-xs-2 text-dark font-weight-bold">Номер телефона</label>
+													<input type="tel" class="form-control" name="phone" value="<?php echo $order['phone_number']; ?>" readonly>
+												</div>
+												<div class="form-group">
+													<label for="name" class="control-label col-xs-2 text-dark font-weight-bold">Имя</label>
+													<input type="text" class="form-control" name="name" value="<?php echo $order['customer']; ?>" readonly>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-outline-info" data-dismiss="modal">Закрыть</button>
+												<button type="submit" class="btn btn-outline-success" name="edit">Редактировать</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						<?php endforeach ?>	
+
 					</div>
 				</div>
 
 				<div class="col-lg-12 col-md-12" id="pagination">
 					<nav class=" float-right">
 						<ul class="pagination">
-							<li class="page-item active"><a href="/" class="page-link">1</a></li>
-							<li class="page-item"><a href="/" class="page-link">2</a></li>
-							<li class="page-item"><a href="/" class="page-link">3</a></li>
-							<li class="page-item"><a href="/" class="page-link">4</a></li>
+							<?php for($i = 1; $i < $links; $i++): ?> 
+								<li class="page-item">
+									<a href="?page=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a>
+								</li>;
+							<?php endfor; ?>
 						</ul>
 					</nav>
 				</div>

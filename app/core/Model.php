@@ -1,10 +1,18 @@
 <?php 
 namespace Phillton\Core;
 
-use Phillton\Core\Database;
+use Phillton\Core\{
+	Database, 
+	Paginator
+};
 
 abstract class Model extends Database
-{
+{ 
+	/**
+	* @var Paginator object Phillton\Core\Paginator
+	*/ 
+	protected $paginator = null;
+
 	/**
 	* Access Database construct method
 	* for creating own sql statement
@@ -12,6 +20,7 @@ abstract class Model extends Database
 	public function __construct()
 	{
 		parent::__construct();
+		$this->paginator = new Paginator();
 	}
 
 	/**
