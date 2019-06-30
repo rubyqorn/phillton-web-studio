@@ -66,4 +66,28 @@ class Service extends Model
 
 		}
 	}
+
+	/**
+	* Return limited services
+	*
+	* @return sql statement with limit records
+	*/ 
+	public function limitedServices()
+	{
+		return $this->selectAll(
+			$this->paginator->calculateRecordsPerPage(5, 'services')
+		);
+	}
+
+	/**
+	* Return page links
+	*
+	* @param $recordsPerPage int
+	*
+	* @return counted pages
+	*/ 
+	public function links($recordsPerPage) 
+	{
+		return $this->paginator->run($recordsPerPage, $this->getServices());
+	}
 }

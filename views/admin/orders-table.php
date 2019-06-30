@@ -58,7 +58,7 @@
 											<div class="modal-body">
 												<div class="form-group">
 													<label for="status" class="control-label col-xs-2 text-dark font-weight-bold">Статус</label>
-													<input type="text" class="form-control" name="status" value="<?php echo $order['name']; ?>">
+													<input type="text" class="form-control" name="status" value="<?php echo $order['status_id']; ?>">
 												</div>
 												<div class="form-group">
 													<label for="email" class="control-label col-xs-2 text-dark font-weight-bold">Почта</label>

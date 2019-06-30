@@ -25,8 +25,9 @@ class WorksController extends Controller
 	*/
 	public function index()
 	{
+		$links = $this->model->links(5);
 		$works = $this->model->getWorks();
 		$title = 'Наши работы';
-		return $this->view->render('works', compact('title', 'works'));
+		return $this->view->render('works', compact('title', 'works', 'links'));
 	}
 }

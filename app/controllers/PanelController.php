@@ -70,7 +70,7 @@ class PanelController extends Controller
 	public function orders()
 	{
 		$orders = $this->order->limitedOrders();
-		$links = $this->order->links(4);
+		$links = $this->order->links(5);
 
 		if (isset($_SESSION['user'])) {
 			$title = 'Таблицы заказов';
@@ -87,9 +87,12 @@ class PanelController extends Controller
 	*/ 
 	public function users()
 	{
+		$users = $this->user->limitedUsers();
+		$links = $this->user->links(5);
+
 		if (isset($_SESSION['user'])) {
 			$title = 'Таблица пользователей';
-			return $this->view->render('admin/users-table', compact('title'));
+			return $this->view->render('admin/users-table', compact('title', 'links', 'users'));
 		}
 
 		return header('Location: /home/login');
@@ -103,9 +106,12 @@ class PanelController extends Controller
 	*/ 
 	public function services()
 	{
+		$services = $this->service->limitedServices();
+		$links = $this->service->links(5);
+
 		if (isset($_SESSION['user'])) {
 			$title = 'Таблица услуг';
-			return $this->view->render('admin/services-table', compact('title'));
+			return $this->view->render('admin/services-table', compact('title', 'services', 'links'));
 		}
 
 		return header('Location: /home/login');
@@ -119,7 +125,7 @@ class PanelController extends Controller
 	public function works()
 	{
 		$works = $this->work->limitedWorks();
-		$pageLinks = $this->work->links(4);
+		$pageLinks = $this->work->links(5);
 
 		if (isset($_SESSION['user'])) {
 			$title = 'Таблица с работами';

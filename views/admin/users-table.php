@@ -27,102 +27,86 @@
 							</thead>
 
 							<tbody class="text-muted">
-								<tr>
-									<td>User</td>
-									<td>Anton Hideger</td>
-									<td>anton@mail.com</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-danger">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>User</td>
-									<td>Anton Hideger</td>
-									<td>anton@mail.com</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-danger">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>User</td>
-									<td>Anton Hideger</td>
-									<td>anton@mail.com</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-danger">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>User</td>
-									<td>Anton Hideger</td>
-									<td>anton@mail.com</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-danger">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>User</td>
-									<td>Anton Hideger</td>
-									<td>anton@mail.com</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-danger">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="submit" class="btn btn-outline-success">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
+								
+								<?php foreach ($users as $user): ?>
+
+									<tr>
+										<td><?php echo $user['role_id']; ?></td>
+										<td><?php echo $user['name']; ?></td>
+										<td><?php echo $user['email'] ?></td>
+										<td>
+											<form action="/" class="form-group" method="post">
+												<div class="form-group">
+													<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-<?php echo $user['id']; ?>">Delete</button>
+												</div>
+											</form>
+										</td>
+										<td>
+											<form action="/" class="form-group" method="post">
+												<div class="form-group">
+													<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-<?php echo $user['id']; ?>">Edit</button>
+												</div>
+											</form>
+										</td>
+									</tr>
+
+								<?php endforeach ?>
+								
 							</tbody>
+
+							<?php foreach ($users as $user): ?>
+
+								<div class="modal fade" tabindex="-1" id="delete-<?php echo $user['id']; ?>" role="dialog">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="text-left text-black-50">Удаление</h4>
+											</div>
+											<form action="/" class="form-group">
+												<div class="modal-body">
+													<h4 class="text-danger text-center font-weight-bold">Вы действительно хотите удалить эту работу???</h4>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-outline-info" data-dismiss="modal">Нет</button>
+													<button type="submit" class="btn btn-outline-success">Да</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Edit -->
+								<div class="modal fade" id="edit-<?php echo $user['id']; ?>" role="dialog" tabindex="-1">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h4 class="textleft text-black-50">Редактирование</h4>
+											</div>
+											<form action="/" class="form-group" method="post">
+												<div class="modal-body">
+													<div class="form-group">
+														<label for="privelegies" class="control-label col-xs-2 text-left text-dark font-weight-bold">Привелегии</label>
+														<input type="text" class="form-control" name="privelegies" value="<?php echo $user['role_id']; ?>" required="Это поле должно быть обязательно заполнено">
+													</div>
+													<div class="form-group">
+														<label for="name" class="control-label col-xs-2 text-left text-dark font-weight-bold">Имя</label>
+														<input type="text" class="form-control" name="name" value="<?php echo $user['name']; ?>" required="Это поле должно быть обязательно заполнено">
+													</div>
+													<div class="form-group">
+														<label for="email" class="control-label col-xs-2 text-left text-dark font-weight-bold">Почта</label>
+														<input type="text" class="form-control" name="email" value="<?php echo $user['email']; ?>" required="Это поле должно быть обязательно заполнено">
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-outline-info" data-dismiss="modal">Закрыть</button>
+													<button type="submit" class="btn btn-outline-success" name="edit">Редактировать</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+
+							<?php endforeach ?>
 
 						</table>
 					</div>
@@ -131,10 +115,9 @@
 				<div class="col-lg-12 col-md-12" id="pagination">
 					<nav class="float-right">
 						<ul class="pagination">
-							<li class="page-item active"><a href="/" class="page-link">1</a></li>
-							<li class="page-item"><a href="/" class="page-link">2</a></li>
-							<li class="page-item"><a href="/" class="page-link">3</a></li>
-							<li class="page-item"><a href="/" class="page-link">4</a></li>
+							<?php for($i = 1; $i < $links; $i++): ?>
+								<li class="page-item"><a href="?page=<?php echo $i ?>" class="page-link"><?php echo $i ?></a></li>
+							<?php endfor; ?>
 						</ul>
 					</nav>
 				</div>

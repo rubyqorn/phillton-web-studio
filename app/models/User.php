@@ -90,4 +90,21 @@ class User extends Model
 		}
 	}
 
+	public function getUsers()
+	{
+		return $this->selectAll('SELECT * FROM users');
+	}
+
+	public function limitedUsers()
+	{
+		return $this->selectAll(
+			$this->paginator->calculateRecordsPerPage(5, 'users')
+		); 
+	}
+
+	public function links($recordsPerPage)
+	{
+		return $this->paginator->run($recordsPerPage, $this->getUsers());
+	}
+
 }

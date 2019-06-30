@@ -51,10 +51,11 @@
 
 				<div class="col-lg-12 col-md-12 col-sm-12">
 					<ul class="pagination">
-						<li class="page-item active"><a href="/" class="page-link">1</a></li>
-						<li class="page-item"><a href="/" class="page-link">2</a></li>
-						<li class="page-item"><a href="/" class="page-link">3</a></li>
-						<li class="page-item"><a href="/" class="page-link">4</a></li>
+						<?php for($i = 1; $i < $links; $i++): ?>
+							<li class="page-item">
+								<a href="?page=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a>
+							</li> 
+						<?php endfor; ?>
 					</ul>
 				</div>
 

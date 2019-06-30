@@ -10,13 +10,14 @@ class Order extends Model
 	*/ 
 	public function getOrders()
 	{
-		return $this->selectRow(
-			'SELECT statuses.name, orders.email, orders.phone_number, orders.customer
-			 FROM orders INNER JOIN statuses WHERE statuses.status_id = orders.status_id'
-		);
+		return $this->selectAll("SELECT * FROM orders");
 	}
 
-	// 
+	/**
+	* Return limited services
+	*
+	* @return sql statement with limit records
+	*/ 
 	public function limitedOrders()
 	{
 		return $this->selectAll(
@@ -24,6 +25,13 @@ class Order extends Model
 		);
 	}
 
+	/**
+	* Return page links
+	*
+	* @param $recordsPerPage int
+	*
+	* @return counted pages
+	*/ 
 	public function links($recordsPerPage)
 	{
 		return $this->paginator->run($recordsPerPage, $this->getOrders());

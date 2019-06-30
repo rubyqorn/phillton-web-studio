@@ -29,192 +29,128 @@
 							</thead>
 
 							<tbody>
-								<tr>
-									<td>Разработка сайтов</td>
-									<td>/img/site-dev.png</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-1">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-1">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Редизайн сайтов под ключ</td>
-									<td>/img/design.png</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-1">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-1">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Оптимизация сайта (SEO)</td>
-									<td>/img/seo.png</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-1">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-1">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Контекстная реклама</td>
-									<td>/img/ads.png</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-1">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-1">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>Разработка landing page</td>
-									<td>/img/landing.png</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-1">Delete</button>
-											</div>
-										</form>
-									</td>
-									<td>
-										<form action="/" class="form-group" method="post">
-											<div class="form-group">
-												<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-1">Edit</button>
-											</div>
-										</form>
-									</td>
-								</tr>
 
+								<?php foreach ($services as $service): ?>
+									
+									<tr>
+										<td><?php echo $service['title']; ?></td>
+										<td><?php echo $service['image']; ?></td>
+										<td>
+											<form action="/" class="form-group" method="post">
+												<div class="form-group">
+													<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-<?php echo $service['id']; ?>">Delete</button>
+												</div>
+											</form>
+										</td>
+										<td>
+											<form action="/" class="form-group" method="post">
+												<div class="form-group">
+													<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#edit-<?php echo $service['id'] ?>">Edit</button>
+												</div>
+											</form>
+										</td>
+									</tr>
+
+								<?php endforeach ?>
 
 							</tbody>
 
 						</table>
 
 						<!-- Modal windows -->
+							
+							<div class="modal fade" id="add" tabindex="-1" role="dialog">
+								<div class="modal-dialog modal-lg" role="dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="text-left text-black-50">Добавление</h4>
+										</div>
+										<form action="/" class="form-group" method="post">
+											<div class="modal-body">
+												<div class="form-group">
+													<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
+													<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено">
+												</div>
+												<div class="form-group">
+													<label for="preview" class="control-label col-xs-2 text-left text-dark font-weight-bold">Превью</label>
+													<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание"></textarea>
+												</div>
+												<div class="form-group">
+													<label for="description" class="control-label col-xs-2 text-left text-dark font-weight-bold">Подробное описание</label>
+													<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги"></textarea>
+												</div>
+												<div class="custom-file">
+													<input type="file" class="custom-file-input" name="image" id="file">
+													<label for="file" class="custom-file-label">Изображение</label>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-outline-info" data-dismiss="modal">Закрыть</button>
+												<button type="submit" class="btn btn-outline-success" name="edit">Добавить</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							
+						<?php foreach ($services as $service): ?>
 
-						<div class="modal fade" id="add" tabindex="-1" role="dialog">
-							<div class="modal-dialog modal-lg" role="dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h4 class="text-left text-black-50">Добавление</h4>
+							<!-- Delete -->
+							<div class="modal fade" tabindex="-1" id="delete-<?php echo $service['id']; ?>" role="dialog">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="text-left text-black-50">Удаление</h4>
+										</div>
+										<form action="/" class="form-group">
+											<div class="modal-body">
+												<h4 class="text-danger text-center font-weight-bold">Вы действительно хотите удалить эту услугу???</h4>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-outline-info" data-dismiss="modal">Нет</button>
+												<button type="submit" class="btn btn-outline-success">Да</button>
+											</div>
+										</form>
 									</div>
-									<form action="/" class="form-group" method="post">
-										<div class="modal-body">
-											<div class="form-group">
-												<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
-												<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено">
-											</div>
-											<div class="form-group">
-												<label for="preview" class="control-label col-xs-2 text-left text-dark font-weight-bold">Превью</label>
-												<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание"></textarea>
-											</div>
-											<div class="form-group">
-												<label for="description" class="control-label col-xs-2 text-left text-dark font-weight-bold">Подробное описание</label>
-												<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги"></textarea>
-											</div>
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="image" id="file">
-												<label for="file" class="custom-file-label">Изображение</label>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-outline-info" data-dismiss="modal">Закрыть</button>
-											<button type="submit" class="btn btn-outline-success" name="edit">Добавить</button>
-										</div>
-									</form>
 								</div>
 							</div>
-						</div>
-						
-						<!-- Delete -->
-						<div class="modal fade" tabindex="-1" id="delete-1" role="dialog">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h4 class="text-left text-black-50">Удаление</h4>
+							
+							<!-- Edit -->
+							<div class="modal fade" id="edit-<?php echo $service['id']; ?>" role="dialog" tabindex="-1">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="textleft text-black-50">Редактирование</h4>
+										</div>
+										<form action="/" class="form-group" method="post">
+											<div class="modal-body">
+												<div class="form-group">
+													<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
+													<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено" value="<?php echo $service['title']; ?>">
+												</div>
+												<div class="form-group">
+													<label for="preview" class="control-label col-xs-2 text-left text-dark font-weight-bold">Превью</label>
+													<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание"><?php echo $service['preview_text']; ?></textarea>
+												</div>
+												<div class="form-group">
+													<label for="description" class="control-label col-xs-2 text-left text-dark font-weight-bold">Подробное описание</label>
+													<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги"><?php echo $service['description']; ?></textarea>
+												</div>
+												<div class="custom-file">
+													<input type="file" class="custom-file-input" name="image" id="file">
+													<label for="file" class="custom-file-label">Изображение</label>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-outline-info" data-dismiss="modal">Закрыть</button>
+												<button type="submit" class="btn btn-outline-success" name="edit">Редактировать</button>
+											</div>
+										</form>
 									</div>
-									<form action="/" class="form-group">
-										<div class="modal-body">
-											<h4 class="text-danger text-center font-weight-bold">Вы действительно хотите удалить эту услугу???</h4>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-outline-info" data-dismiss="modal">Нет</button>
-											<button type="submit" class="btn btn-outline-success">Да</button>
-										</div>
-									</form>
 								</div>
 							</div>
-						</div>
-						
-						<!-- Edit -->
-						<div class="modal fade" id="edit-1" role="dialog" tabindex="-1">
-							<div class="modal-dialog modal-lg" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h4 class="textleft text-black-50">Редактирование</h4>
-									</div>
-									<form action="/" class="form-group" method="post">
-										<div class="modal-body">
-											<div class="form-group">
-												<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
-												<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено">
-											</div>
-											<div class="form-group">
-												<label for="preview" class="control-label col-xs-2 text-left text-dark font-weight-bold">Превью</label>
-												<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание"></textarea>
-											</div>
-											<div class="form-group">
-												<label for="description" class="control-label col-xs-2 text-left text-dark font-weight-bold">Подробное описание</label>
-												<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги"></textarea>
-											</div>
-											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="image" id="file">
-												<label for="file" class="custom-file-label">Изображение</label>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-outline-info" data-dismiss="modal">Закрыть</button>
-											<button type="submit" class="btn btn-outline-success" name="edit">Редактировать</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
+
+						<?php endforeach ?>
 
 					</div>
 				</div>
@@ -222,10 +158,11 @@
 				<div class="col-lg-12 col-md-12" id="pagination">
 					<nav class="float-right">
 						<ul class="pagination">
-							<li class="page-item active"><a href="/" class="page-link">1</a></li>
-							<li class="page-item"><a href="/" class="page-link">2</a></li>
-							<li class="page-item"><a href="/" class="page-link">3</a></li>
-							<li class="page-item"><a href="/" class="page-link">4</a></li>
+							<?php for($i = 1; $i < $links; $i++): ?>
+								<li class="page-item">
+									<a href="?page=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a>
+								</li>
+							<?php endfor; ?>
 						</ul>
 					</nav>
 				</div>
