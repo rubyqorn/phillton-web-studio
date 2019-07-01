@@ -30,4 +30,43 @@ class WorksController extends Controller
 		$title = 'Наши работы';
 		return $this->view->render('works', compact('title', 'works', 'links'));
 	}
+
+	/**
+	* Add new record into db table and 
+	* redirect on works table page
+	*
+	* @return redirect on works table page
+	*/ 
+	public function add()
+	{
+		if ($this->model->addRecord()) {
+			return header('Location: /panel/works?page=1');
+		}
+	}
+
+	/**
+	* Update record by id and redirect 
+	* on works table page
+	*
+	* @return redirect on works table page
+	*/ 
+	public function update()
+	{
+		if ($this->model->updateRecord($_GET['id'])) {
+			return header('Location: /panel/works?page=1');
+		}
+	}
+
+	/**
+	* Delete record by id and redirect
+	* on works table page
+	*
+	* @return redirect on works table page
+	*/ 
+	public function delete()
+	{
+		if ($this->model->deleteRecord($_GET['id'])) {
+			return header('Location: /panel/works?page=1');
+		}
+	}
 }

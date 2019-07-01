@@ -90,4 +90,76 @@ class Service extends Model
 	{
 		return $this->paginator->run($recordsPerPage, $this->getServices());
 	}
+
+	/**
+	* Get validated fields and insert into db table. 
+	* Also we get file which we upload and replace into
+	* /img folder
+	*
+	* @return inserted record
+	*/ 
+	public function addRecord()
+	{
+		$validation = $this->form->analyzeServiceForm($_POST);
+
+		if ($validation !== FALSE) {
+			$uploadFile = '../public/img/'. $_FILES['image']['name'];
+
+			if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+			 	return $this->customizeTable(
+			 		'INSERT INTO services (title, description, preview_text, image)
+			 			VALUES (?,?,?,?)',
+			 		[$_POST['title'], $_POST['description'], $_POST['preview'], $uploadFile]
+			 	);	
+			} else {
+				die('Проблемы с загрузкой файла');
+			}			
+		}
+
+		die($validation);
+	}
+
+	/**
+	* Get validated fields and update record
+	* by id. Also we get file which will be
+	* upload into /img folder
+	*
+	* @param $id int|string
+	*
+	* @return updated record
+	*/ 
+	public function updateRecord($id)
+	{
+		$validation = $this->form->analyzeServiceForm($_POST);
+
+		if ($validation !== FALSE) {
+			$uploadFile = '../public/img/' . $_FILES['image']['name'];
+
+			if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
+				return $this->customizeTable(
+					'UPDATE services SET title = ?, description = ?, preview_text = ?, image = ?
+						 WHERE id = ?',
+					[$_POST['title'], $_POST['description'], $_POST['preview'], $uploadFile, $id]
+				);
+			}
+		}
+	}
+
+	/**
+	* Delete record by id
+	*
+	* @param $id int|string
+	*
+	* @return deleted record
+	*/ 
+	public function deleteRecord($id)
+	{
+		if (isset($id)) {
+			return $this->customizeTable(
+				'DELETE FROM services WHERE id = ?',
+				[$id]
+			);
+		}
+	}
+
 }

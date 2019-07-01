@@ -67,8 +67,8 @@ class FieldChecker implements CheckFields
 		}
 
 		if ($type == 'textarea') {
-			if ($text < 100 || $text > 200) {
-				die('Поле текста не должно быть меньше 100 и больше 200 символов');
+			if ($text < 100 || $text > 600) {
+				die('Поле текста не должно быть меньше 100 и больше 600 символов');
 			} else {
 				return $text;
 			}

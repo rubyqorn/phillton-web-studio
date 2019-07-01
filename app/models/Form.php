@@ -211,4 +211,76 @@ class Form extends Validator
 			}
 		}
 	}
+
+	/**
+	* This method will be use with add and update
+	* in Service model. We get validated fields
+	* and return error or success message.
+	*
+	* @param $fields array 
+	*
+	* @return success or error message
+	*/ 
+	public function analyzeServiceForm(array $fields)
+	{
+		$this->validateServiceForm($fields);
+
+		if ($this->validate !== null) {
+			return $this->message = 'Поля успешно прошли валидацию';
+		}
+
+		return $this->message;
+	}
+
+	/**
+	* Fields validation
+	*
+	* @param $fields array
+	*
+	* @return validated fields
+	*/ 
+	private function validateServiceForm($fields)
+	{
+		if (isset($fields) && is_array($fields)) {
+			if (isset($fields['add']) || isset($fields['edit'])) {
+				$this->validate = $this->field->checkTextField($fields['title'], 'input');
+				$this->validate = $this->field->checkTextField($fields['preview'], 'textarea');
+				$this->validate = $this->field->checkTextField($fields['description'], 'textarea');
+				return $this->validate;
+			}
+		}
+	}
+
+	/**
+	* This method will be use with add and update
+	* methods in Works model. We get validated 
+	* fields and return error or success message.
+	*/ 
+	public function analyzeWorksForm(array $fields)
+	{
+		$this->validateWorksForm($fields);
+
+		if ($this->validate == null) {
+			return $this->message;
+		}
+
+		return $this->message = 'Поля успешно прошли валидацию';
+	}
+
+	/**
+	* Fields validation
+	*
+	* @param $fields array
+	*
+	* @return validated fields
+	*/ 
+	private function validateWorksForm($fields)
+	{
+		if (!empty($fields) && is_array($fields)) {
+			if (isset($fields['add']) || isset($fields['edit'])) {
+				$this->validate = $this->field->checkTextField($fields['title'], 'input');
+				return $this->validate;
+			}
+		}
+	}
 }

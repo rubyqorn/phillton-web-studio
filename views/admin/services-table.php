@@ -65,7 +65,7 @@
 										<div class="modal-header">
 											<h4 class="text-left text-black-50">Добавление</h4>
 										</div>
-										<form action="/" class="form-group" method="post">
+										<form action="/services/add" class="form-group" method="post" enctype="multipart/form-data">
 											<div class="modal-body">
 												<div class="form-group">
 													<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
@@ -102,7 +102,7 @@
 										<div class="modal-header">
 											<h4 class="text-left text-black-50">Удаление</h4>
 										</div>
-										<form action="/" class="form-group">
+										<form action="/services/delete?id=<?php echo $service['id']; ?>" class="form-group" method="post">
 											<div class="modal-body">
 												<h4 class="text-danger text-center font-weight-bold">Вы действительно хотите удалить эту услугу???</h4>
 											</div>
@@ -122,7 +122,7 @@
 										<div class="modal-header">
 											<h4 class="textleft text-black-50">Редактирование</h4>
 										</div>
-										<form action="/" class="form-group" method="post">
+										<form action="/services/update?id=<?php echo $service['id']; ?>" class="form-group" method="post" enctype="multipart/form-data">
 											<div class="modal-body">
 												<div class="form-group">
 													<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
