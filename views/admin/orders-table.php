@@ -54,11 +54,11 @@
 										<div class="modal-header">
 											<h4 class="text-left text-black-50">Редактирование</h4>
 										</div>
-										<form action="/" class="form-group" method="post">
+										<form action="/orders/update?id=<?php echo $order['id']; ?>" class="form-group" method="post">
 											<div class="modal-body">
 												<div class="form-group">
 													<label for="status" class="control-label col-xs-2 text-dark font-weight-bold">Статус</label>
-													<input type="text" class="form-control" name="status" value="<?php echo $order['status_id']; ?>">
+													<input type="text" class="form-control" name="status" value="<?php echo $order['status_id']; ?>" required>
 												</div>
 												<div class="form-group">
 													<label for="email" class="control-label col-xs-2 text-dark font-weight-bold">Почта</label>

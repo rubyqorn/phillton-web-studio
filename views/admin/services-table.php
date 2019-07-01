@@ -73,14 +73,14 @@
 												</div>
 												<div class="form-group">
 													<label for="preview" class="control-label col-xs-2 text-left text-dark font-weight-bold">Превью</label>
-													<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание"></textarea>
+													<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание" required></textarea>
 												</div>
 												<div class="form-group">
 													<label for="description" class="control-label col-xs-2 text-left text-dark font-weight-bold">Подробное описание</label>
-													<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги"></textarea>
+													<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги" required></textarea>
 												</div>
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" name="image" id="file">
+													<input type="file" class="custom-file-input" name="image" id="file" required>
 													<label for="file" class="custom-file-label">Изображение</label>
 												</div>
 											</div>
@@ -126,18 +126,18 @@
 											<div class="modal-body">
 												<div class="form-group">
 													<label for="title" class="control-label col-xs-2 text-left text-dark font-weight-bold">Название услуги</label>
-													<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено" value="<?php echo $service['title']; ?>">
+													<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено" value="<?php echo $service['title']; ?>" required>
 												</div>
 												<div class="form-group">
 													<label for="preview" class="control-label col-xs-2 text-left text-dark font-weight-bold">Превью</label>
-													<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание"><?php echo $service['preview_text']; ?></textarea>
+													<textarea name="preview" class="form-control" cols="5" rows="5" placeholder="Маленькое описание" required><?php echo $service['preview_text']; ?></textarea>
 												</div>
 												<div class="form-group">
 													<label for="description" class="control-label col-xs-2 text-left text-dark font-weight-bold">Подробное описание</label>
-													<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги"><?php echo $service['description']; ?></textarea>
+													<textarea name="description" class="form-control" cols="30" rows="10" placeholder="Подробное описание услуги" required><?php echo $service['description']; ?></textarea>
 												</div>
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" name="image" id="file">
+													<input type="file" class="custom-file-input" name="image" id="file" required>
 													<label for="file" class="custom-file-label">Изображение</label>
 												</div>
 											</div>

@@ -62,13 +62,13 @@
 											<div class="modal-header">
 												<h4 class="text-left text-black-50">Удаление</h4>
 											</div>
-											<form action="/" class="form-group">
+											<form action="/users/delete?id=<?php echo $user['id']; ?>" class="form-group" method="post">
 												<div class="modal-body">
 													<h4 class="text-danger text-center font-weight-bold">Вы действительно хотите удалить эту работу???</h4>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-outline-info" data-dismiss="modal">Нет</button>
-													<button type="submit" class="btn btn-outline-success">Да</button>
+													<button type="submit" class="btn btn-outline-success" name="delete">Да</button>
 												</div>
 											</form>
 										</div>
@@ -82,7 +82,7 @@
 											<div class="modal-header">
 												<h4 class="textleft text-black-50">Редактирование</h4>
 											</div>
-											<form action="/" class="form-group" method="post">
+											<form action="/users/update?id=<?php echo $user['id']; ?>" class="form-group" method="post">
 												<div class="modal-body">
 													<div class="form-group">
 														<label for="privelegies" class="control-label col-xs-2 text-left text-dark font-weight-bold">Привелегии</label>

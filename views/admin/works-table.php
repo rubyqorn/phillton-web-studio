@@ -69,7 +69,7 @@
 												<input type="text" class="form-control" name="title" required="Это поле должно быть обязательно заполнено">
 											</div>
 											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="image" id="file">
+												<input type="file" class="custom-file-input" name="image" id="file" required>
 												<label for="file" class="custom-file-label">Изображение</label>
 											</div>
 										</div>
@@ -118,7 +118,7 @@
 												<input type="text" class="form-control" name="title" value="<?php echo $work['title']; ?>" required="Это поле должно быть обязательно заполнено">
 											</div>
 											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="image" id="file" value="<?php echo $work['image']; ?>">
+												<input type="file" class="custom-file-input" name="image" id="file" value="<?php echo $work['image']; ?>" required>
 												<label for="file" class="custom-file-label">Изображение</label>
 											</div>
 										</div>

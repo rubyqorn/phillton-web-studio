@@ -90,11 +90,21 @@ class User extends Model
 		}
 	}
 
+	/**
+	* Get all users from db table
+	*
+	* @return array with users
+	*/ 
 	public function getUsers()
 	{
 		return $this->selectAll('SELECT * FROM users');
 	}
 
+	/**
+	* Get limited users for pagination
+	*
+	* @return limited users
+	*/ 
 	public function limitedUsers()
 	{
 		return $this->selectAll(
@@ -102,9 +112,65 @@ class User extends Model
 		); 
 	}
 
+	/**
+	* Get page links for pagination
+	*
+	* @param $recordsPerPage int
+	*
+	* @return counted pages
+	*/ 
 	public function links($recordsPerPage)
 	{
 		return $this->paginator->run($recordsPerPage, $this->getUsers());
+	}
+
+	/**
+	* Update users fields if its match
+	* validation rules
+	*
+	* @param $id int|string
+	*
+	* @return updated record 
+	*/ 
+	public function updateRecord($id)
+	{
+		$usersFormValidation = $this->form->updateUsersForm($_POST);
+
+		if (isset($id) && $usersFormValidation !== FALSE) {
+			
+			$query = $this->customizeTable(
+				'UPDATE users SET role_id = ?, name = ?, email = ? WHERE id = ?',
+				[$_POST['privelegies'], $_POST['name'], $_POST['email'], $id]
+			);
+
+			if ($query == TRUE) {
+				return $usersFormValidation;
+			}
+		}
+
+		die('Проблема с обработкой формы');
+	}
+
+	/**
+	* Delete users by id from db table
+	*
+	* @return deleted user
+	*/ 
+	public function deleteRecord($id)
+	{
+		if (isset($id) && isset($_POST['delete'])) {
+			return $this->customizeTable(
+				'DELETE FROM users WHERE id = ?',
+				[$id]
+			);
+		}
+	}
+
+	public function debug($str)
+	{
+		echo "<pre>";
+		print_r($str);
+		echo "</pre>";
 	}
 
 }

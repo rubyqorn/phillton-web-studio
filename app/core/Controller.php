@@ -13,12 +13,6 @@ abstract class Controller
 	protected $view;
 
 	/**
-	* All children classes have to realise
-	* this abstract method
-	*/ 
-	abstract public function index();
-
-	/**
 	* @return basic objects which we will use
 	* in children classes
 	*/ 

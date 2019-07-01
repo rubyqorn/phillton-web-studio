@@ -175,4 +175,40 @@ class Form extends Validator
 		}
 	}
 
+	/**
+	* Return success message if validation fields
+	* was successful
+	*
+	* @param $fields array
+	*
+	* @return error or success message
+	*/  
+	public function updateUsersForm(array $fields)
+	{
+		$this->validateUpdateUsersForm($fields);
+
+		if ($this->validate == null) {
+			return $this->message;
+		}
+
+		return $this->message = 'Поля успешно прошли проверку';
+	}
+
+	/**
+	* Fields validation
+	*
+	* @param $fields array
+	*
+	* @return validated fields
+	*/ 
+	private function validateUpdateUsersForm($fields)
+	{
+		if (!empty($fields) && is_array($fields)) {
+			if (isset($fields['edit'])) {
+				$this->validate = $this->field->checkTextField($fields['name'], 'input');
+				$this->validate = $this->field->checkEmailField($fields['email']);
+				return $this->validate;
+			}
+		}
+	}
 }

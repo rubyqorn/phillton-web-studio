@@ -2,9 +2,27 @@
 namespace Phillton\Models;
 
 use Phillton\Core\Model;
+use Phillton\Models\Form;
 
 class Order extends Model
 {
+	/**
+	* @var Form object Phillton\Models\Form
+	*/ 
+	private $form = null;
+
+	/**
+	* Register new models which will be using
+	* in this class
+	*
+	* @return new objects 
+	*/
+	public function __construct()
+	{
+		parent::__construct();
+		$this->form = new Form();
+	}
+
 	/**
 	* @return all orders from db table
 	*/ 
@@ -36,4 +54,23 @@ class Order extends Model
 	{
 		return $this->paginator->run($recordsPerPage, $this->getOrders());
 	}
+
+
+	/**
+	* Update availabel fields 
+	*
+	* @param $id int|string
+	*
+	* @return updated field
+	*/ 
+	public function updateRecord($id)
+	{	
+		if (isset($id)) {
+			return $this->customizeTable(
+				'UPDATE orders SET status_id = ? WHERE id = ?',
+				[$_POST['status'], $id]
+			);
+		}
+	}
+
 }
