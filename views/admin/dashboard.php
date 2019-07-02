@@ -15,12 +15,20 @@
 				<div class="col-lg-12 col-md-12 col-sm-12 float-right d-flex justify-content-center">
 					<div class="col-lg-6 col-sm-6 col-md-6 rounded m-2 p-4 text-center" id="count-users">
 						<i class="fas fa-user-circle fa-2x text-white m-1"></i>
-						<h3 class="text-center text-white font-weight-bold">14.2k</h3>
+						<?php foreach ($countedUsers as $users): ?>
+		
+						<h3 class="text-center text-white font-weight-bold"><?php echo $users['users']; ?></h3>
+						
+						<?php endforeach ?>
 						<p class="text-white text-center font-weight-bold">Количество пользователей</p>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 rounded m-2 p-4 text-center" id="count-orders">
 						<i class="fas fa-donate fa-2x text-white m-1"></i>
-						<h3 class="text-center text-white font-weight-bold">12.1k</h3>
+						<?php foreach ($countedOrders as $orders): ?>
+
+						<h3 class="text-center text-white font-weight-bold"><?php echo $orders['orders'] ?></h3>
+
+						<?php endforeach ?>
 						<p class="text-center text-white font-weight-bold">Количество заказов</p>
 					</div>
 				</div>
@@ -33,9 +41,11 @@
 						<div class="shadow p-4 m-3">
 							<h4 class="text-primary text-left font-weight-bold">Процент завершенных заказов</h4>
 							<hr>
+
 							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" style="width: 45%">45%</div>
-							</div>
+								<div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" style="width: <?php echo $persentOfReadyOrders ?>%"><?php echo $persentOfReadyOrders; ?>%</div>
+							</div>							
+
 						</div>
 					</div>
 
@@ -44,7 +54,7 @@
 							<h4 class="text-left text-danger font-weight-bold">Процент незавершенных заказов</h4>
 							<hr>
 							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 55%">55%</div>
+								<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: <?php echo $prepareOrders ?>%"><?php echo $prepareOrders; ?>%</div>
 							</div>
 						</div>
 					</div>
@@ -67,21 +77,15 @@
 							</thead>
 
 							<tbody>
-								<tr>
-									<td>Prepare</td>
-									<td>anton_1337322@mail.ru</td>
-									<td>Anton Hideger</td>
-								</tr>
-								<tr>
-									<td>Prepare</td>
-									<td>hellen@gmail.com</td>
-									<td>Hellen Celler</td>
-								</tr>
-								<tr>
-									<td>Ready</td>
-									<td>wilson_weedwood_123@gmail.com</td>
-									<td>Willson Weedwood</td>
-								</tr>
+								<?php foreach ($lastOrders as $orders): ?>
+									
+									<tr>
+										<td><?php echo $orders['status']; ?></td>
+										<td><?php echo $orders['email']; ?></td>
+										<td><?php echo $orders['customer']; ?></td>
+									</tr>
+
+								<?php endforeach ?>
 							</tbody>
 
 						</table>
@@ -103,18 +107,14 @@
 							</thead>
 
 							<tbody>
-								<tr>
-									<td>Anton Hideger</td>
-									<td>anton_1337322@mail.ru</td>
-								</tr>
-								<tr>
-									<td>Hellen Celler</td>
-									<td>hellen@gmail.com</td>
-								</tr>
-								<tr>
-									<td>Willson Weedwood</td>
-									<td>wilson_weedwood_123@gmail.com</td>
-								</tr>
+								<?php foreach ($lastUsers as $user): ?>
+										
+									<tr>
+										<td><?php echo $user['name']; ?></td>
+										<td><?php echo $user['email']; ?></td>
+									</tr>
+
+								<?php endforeach ?>
 							</tbody>
 
 						</table>

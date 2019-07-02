@@ -54,9 +54,19 @@ class PanelController extends Controller
 	*/ 
 	public function index()
 	{
+		$countedUsers = $this->user->countUsers();
+		$lastUsers = $this->user->lastRegisteredUsers();
+		$countedOrders = $this->order->countOrders();
+		$lastOrders = $this->order->lastOrders();
+		$persentOfReadyOrders = $this->order->persentOfFinishedOrders();
+		$prepareOrders = $this->order->persentOfPrepareOrders();
+
 		if (isset($_SESSION['user'])) {
 			$title = 'Панель администрирования';
-			return $this->view->render('admin/dashboard', compact('title'));
+			return $this->view->render('admin/dashboard', compact(
+				'title', 'countedUsers', 'countedOrders', 'lastUsers',
+				'lastOrders', 'persentOfReadyOrders', 'prepareOrders'
+			));
 		}
 
 		return header('Location: /home/login');

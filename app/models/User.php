@@ -165,4 +165,28 @@ class User extends Model
 			);
 		}
 	}
+
+	/**
+	* Count all registered users
+	*
+	* @return all registered users 
+	*/ 
+	public function countUsers()
+	{
+		return $this->selectAll(
+			'SELECT COUNT(*) AS users FROM users'
+		);
+	}
+
+	/**
+	* Get 5 last registered users
+	*
+	* @return 5 registered users
+	*/ 
+	public function lastRegisteredUsers()
+	{
+		return $this->selectAll(
+			'SELECT name, email FROM users ORDER BY created_at DESC LIMIT 5'
+		);
+	}
 }

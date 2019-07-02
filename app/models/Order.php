@@ -73,4 +73,80 @@ class Order extends Model
 		}
 	}
 
+	/**
+	* Count all registered users
+	*
+	* @return quantity of registered users
+	*/ 
+	public function countOrders()
+	{
+		return $this->selectAll(
+			'SELECT COUNT(*) AS orders FROM orders'
+		);
+	}
+
+	/**
+	* Get 5 last registered users
+	*
+	* @return 5 registered users 
+	*/ 
+	public function lastOrders()
+	{
+		return $this->selectAll(
+			'SELECT statuses.name AS status, orders.email, orders.customer 
+				FROM orders INNER JOIN statuses
+				WHERE statuses.status_id = orders.status_id 
+				ORDER BY created_at DESC LIMIT 5'
+		);
+	}
+
+	/**
+	* Calculate persent of ready orders
+	*
+	* @return persent of ready orders
+	*/ 
+	public function persentOfFinishedOrders()
+	{
+		$quantityOfOrders = $this->countOrders();
+
+		if (!empty($quantityOfOrders)) {
+			$quantityOfReadyOrders = $this->selectAll(
+				'SELECT COUNT(*) AS orders FROM orders WHERE status_id = 1'
+			);
+
+			foreach ($quantityOfOrders as $fullQuantity) {
+				foreach ($quantityOfReadyOrders as $readyOrders) {
+					$calculatePersent = $fullQuantity['orders'] / 100;
+					$persentOfReadyOrders = $readyOrders['orders'] / $calculatePersent;
+					return $persentOfReadyOrders;
+				}
+			}
+
+		}
+	}
+
+	/**
+	* Calculate present of prepare orders
+	*
+	* @return persent of prepare orders
+	*/ 
+	public function persentOfPrepareOrders()
+	{
+		$quantityOfOrders = $this->countOrders();
+
+		if (!empty($quantityOfOrders)) {
+			$quantityOfPrepareOrders = $this->selectAll(
+				'SELECT COUNT(*) AS orders FROM orders WHERE status_id = 2'
+			);
+
+			foreach ($quantityOfOrders as $fullQuantity) {
+				foreach ($quantityOfPrepareOrders as $prepareOrders) {
+					$calculatePersent = $fullQuantity['orders'] / 100;
+					$persentOfPrepareOrders = $prepareOrders['orders'] / $calculatePersent;
+					return $persentOfPrepareOrders;
+				}
+			}
+		}
+	}
+
 }
