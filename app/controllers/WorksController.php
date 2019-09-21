@@ -27,6 +27,7 @@ class WorksController extends Controller
 	{
 		$links = $this->model->links(5);
 		$works = $this->model->getWorks();
+
 		$title = 'Наши работы';
 		return $this->view->render('works', compact('title', 'works', 'links'));
 	}

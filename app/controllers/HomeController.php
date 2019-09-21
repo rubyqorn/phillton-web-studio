@@ -4,7 +4,8 @@ namespace Phillton\Controllers;
 use Phillton\Core\Controller;
 use Phillton\Models\{
 	Form,
-	User
+	User,
+	Work
 };
 
 class HomeController extends Controller
@@ -20,6 +21,11 @@ class HomeController extends Controller
 	private $user = null;
 
 	/**
+	* @var Work object Phillton\Models\Work 
+	*/ 
+	private $work = null;
+
+	/**
 	* @return setted new objects
 	*/ 
 	public function __construct()
@@ -27,6 +33,7 @@ class HomeController extends Controller
 		parent::__construct();
 		$this->form = new Form();
 		$this->user = new User();
+		$this->work = new Work();
 	}
 
 	/**
@@ -35,7 +42,8 @@ class HomeController extends Controller
 	public function index()
 	{
 		$title = 'Phillton - прогрессивная веб студия';
-		return $this->view->render('home', compact('title'));
+		$works = $this->work->getThreeLastWorks();
+		return $this->view->render('home', compact('title', 'works'));
 	}
 
 	/**
@@ -55,7 +63,7 @@ class HomeController extends Controller
 	*
 	* @return login page
 	*/ 
-	public function login()
+	public function auth()
 	{
 		$title = 'Войти';
 		return $this->view->render('login', compact('title'));
@@ -67,22 +75,11 @@ class HomeController extends Controller
 	* @return redirect on admin page
 	* if user have permissions
 	*/ 
-	public function auth()
+	public function login()
 	{
 		if ($this->user->login() == TRUE) {
 			return header('Location: /panel/index');
 		}
-	}
-	
-	/**
-	* Register
-	*
-	* @return register page
-	*/ 
-	public function register()
-	{
-		$title = 'Зарегистрироваться';
-		return $this->view->render('register', compact('title'));
 	}
 
 	/**

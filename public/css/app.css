@@ -1,227 +1,70 @@
-body{
+body {
 	height: 100%;
 	width: 100%;
 }
 
-nav .navbar-brand {
+.navbar-light-blue {
+	background-color: #4285f4 !important;
+}
+
+.bg-light-blue {
+	background-color: #4285f4;
+}
+
+.montserrat-font {
 	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
 }
 
-nav .nav-link {
+.nunito-font {
+	font-family: 'Nunito', sans-serif;
+}
+
+.raleway-font {
 	font-family: 'Raleway', sans-serif;
-	font-weight: 200;
-	color: #fff !important;
 }
 
-nav .nav-link:hover {
-	color: #f4f4f4 !important;
-	transition: all 0.6s;
+.miriam-font {
+	font-family: 'Miriam Libre', sans-serif;
 }
 
-#header {
-	margin: 0 0 40px 0;
+.light-blue-line {
+	border: 2px solid #4285f4;
+	border-radius: 4px;
+	width: 50%;
 }
 
-#header .carousel {
+nav a.h3 {
+	text-decoration: none;
+}
+
+#previous-content {
+	background: url('../public/img/default.png') no-repeat center fixed;
+	height: 600px;
+}
+
+#previous-content .overlay {
+	height: inherit;
+	width: inherit;
+	background-color: #222;
 	opacity: 0.8;
 }
 
-#header p.text-white {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
-	font-size: 20px;
+#carousel img {
+    width: 50%;
 }
 
-#short-about {
-	margin: 40px 0;
+#header {
+	background: url('../public/img/header.png') no-repeat center fixed;
+	height: 280px;
 }
 
-#short-about h2.text-center {
-	color: #333;
-	font-family: 'Lalezar', sans-serif;
+#header .overlay {
+	background-color: #222;
+	height: inherit;
+	width: inherit;
+	opacity: 0.8;
 }
 
-#short-about .blue-hr {
-	border: 1px solid #87cefb;
-	width: 50%
-}
-
-#short-about .col-lg-6 {
-	margin: 40px 0;
-}
-
-#contacts {
-	margin: 40px 0;
-}
-
-#contacts .col-lg-12 {
-	margin: 30px 0;
-}
-
-#contacts h2.text-center {
-	color: #333;
-	font-family: 'Lalezar', sans-serif;
-}
-
-#contacts .blue-hr {
-	border: 1px solid #87cefb;
-	width: 50%;
-}
-
-#contacts .control-label {
-	font-family: 'Raleway', sans-serif;
-}
-
-#contacts .fas {
-	color: #666;
-	margin: 0 10px;
-}
-
-#contacts .info {
-	color: #807d7d;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 200;
-	font-size: 15px;
-}
-
-#works {
-	margin: 60px 0;
-}
-
-#works h2.text-center {
-	font-family: 'Lalezar', sans-serif;
-	color: #333;
-}
-
-#works .blue-hr {
-	border: 1px solid #87cefb;
-	width: 50%;
-}
-
-#works .col-lg-4 {
-	margin: 20px 0;
-}
-
-#works .col-lg-4 .shadow {
-	padding: 2%;
-}
-
-#works .col-lg-4 .shadow .info a.nav-link {
-	font-family: 'Raleway', sans-serif;
-	font-size: 20px;
-	margin: 10px 0 0 0;
-}
-
-#works .col-lg-4 .shadow .info p.text-left {
-	color: #807d7d;
-	font-family: 'Montserrat', sans-serif;
-	font-size: small;
-	font-weight: 200;
-}
-
-#works .col-lg-4 .shadow .info .fa-clock {
-	margin: 0 7px;
-}
-
-#works .col-lg-4 a.nav-link {
-	color: #444;
-	transition: all 0.6s;
-}
-
-#works .col-lg-4 a.nav-link:hover {
-	color: #807d7d;
-	transition: all 0.6s;
-}
-
-#works .pagination {
-	margin: 20px 0;
-}
-
-#services {
-	margin: 60px 0;
-}
-
-#services h2.text-center {
-	color: #333;
-	font-family: 'Lalezar', sans-serif;
-}
-
-#services .blue-hr {
-	border: 1px solid #87cefb;
-	width: 50%;
-}
-
-#services .col-lg-6 {
-	margin: 20px 0;
-}
-
-#service {
-	margin: 60px 0;
-}
-
-#service h3.text-center {
-	font-family: 'Josefin sans', sans-serif;
-}
-
-#service p.text-left {
-	font-family: 'Raleway', sans-seif;
-}
-
-#service .blue-hr {
-	border: 1px solid #87cefb;
-	width: 50%;
-}
-
-#service .contact-form {
-	margin: 40px 0 0 0;
-} 
-
-#about {
-	margin: 60px 0;
-}
-
-#about h2.text-center {
-	font-family: 'Lalezar', sans-serif;
-	color: #333;
-}
-
-#about .blue-hr {
-	border: 1px solid #87cefb;
-	width: 50%;
-}
-
-#about .shadow-box {
-	padding: 2%;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-#about .about-item {
-	margin: 30px 0;
-}
-
-#about .col-lg-6 p.text-left {
-	font-family: 'Raleway', sans-serif;
-	font-weight: 200;
-	font-size: 15px;
-	color: #807d7d;
-}
-
-#auth {
-	padding: 2%;
-	min-height: 500px;
-}
-
-footer {
-	height: 150px;
-	padding: 2%;
-	background-color: #007bff;
-}
-
-footer .fab {
-	padding: 0 5px;
-}
-
-footer p.text-white {
-	margin: 10px 0 0 0;
+#service img {
+	opacity: 0.8;
 }

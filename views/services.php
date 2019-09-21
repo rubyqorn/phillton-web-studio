@@ -1,33 +1,44 @@
 <?php require_once '../views/parts/header.php' ?>	
 
+	<!-- Header -->
+	<div class="w-100" id="header">
+        <div class="overlay">
+            <div class="col-lg-12 col-md-12 col-12 text-center pt-4">
+                <p class="display-3 pt-4 text-white montserrat-font col-12">
+                    Наши услуги    
+                </p>
+            </div>
+        </div>
+    </div>
+
 	<!-- Services -->
+	<div class="container mt-4 mb-4" id="services">
+        <div class="row">
 
-	<section id="services">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h2 class="text-center font-weight-bold">Наши услуги</h2>
-					<hr class="blue-hr">
-				</div>
+            <?php foreach($services as $service): ?>
+                <div class="col-lg-6 col-md-6 col-12 mt-4 d-flex">
+                    <div class="col-lg-6 text-right mr-4">
+                        <h4 class="text-dark raleway-font text-uppercase">
+                            <small>
+                                <a href="/services/service?id=<?php echo $service['id'] ?>">
+                                    <?php echo $service['title']; ?>
+                                </a>
+                            </small>
+                        </h4>
+                        <hr>
+                        <p class="text-black-50 montserrat-font">
+                            <small>
+                                <?php echo $service['preview_text']; ?>
+                            </small>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <img src="<?php echo $service['image']; ?>" alt="<?php echo $service['title'] ?>" class="w-100">
+                    </div>
+                </div>
+            <?php endforeach; ?>
 
-				<?php foreach($services as $service): ?>
-
-					<div class="col-lg-6 col-md-6 col-sm-12">
-						<div class="card bg-dark">
-							<img src="<?php echo $service['image']; ?>" alt="<?php echo $service['title']; ?>" class="w-100 card-img">
-							<div class="card-img-overlay">
-								<h2 class=" text-center">
-									<a href="/services/service?id=<?php echo $service['id']; ?>" class="nav-link text-dark font-weight-bold"><?php echo $service['title']; ?></a>
-								</h2>
-								<p class="card-text font-weight-bold"><?php echo $service['preview_text']; ?></p>
-							</div>
-						</div>
-					</div>
-
-				<?php endforeach; ?>
-
-			</div>
-		</div>
-	</section>
+        </div>
+    </div>
 
 <?php require_once '../views/parts/footer.php' ?>

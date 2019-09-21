@@ -35,6 +35,15 @@ class Work extends Model
 	}
 
 	/**
+	* Get three last records
+	* @return Phillton\Models\Work 
+	*/ 
+	public function getThreeLastWorks() 
+	{
+		return $this->selectAll('SELECT * FROM works ORDER BY created_at DESC LIMIT 3');
+	}
+
+	/**
 	* Return counted pages which we will use
 	* on the page
 	*
