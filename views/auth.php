@@ -14,7 +14,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="/" method="post">
+                        <form action="/home/login" method="post">
                             <div class="form-group">
                                 <label for="email" class="control-label col-xs-2 text-black-50 montserrat-font">
                                     Почта
@@ -52,7 +52,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="/" method="post">
+                        <form action="/home/registration" method="post">
                             <div class="form-group">
                                 <label for="name" class="control-label col-xs-2 text-black-50 montserrat-font">
                                     Имя

@@ -37,8 +37,13 @@ nav a.h3 {
 	text-decoration: none;
 }
 
+.scrolled {
+	padding: 2%;
+	transition: all 0.6s;
+}
+
 #previous-content {
-	background: url('../public/img/default.png') no-repeat center fixed;
+	background: url('/img/default.png') no-repeat center fixed;
 	height: 600px;
 }
 
@@ -54,7 +59,7 @@ nav a.h3 {
 }
 
 #header {
-	background: url('../public/img/header.png') no-repeat center fixed;
+	background: url('/img/header.png') no-repeat center fixed;
 	height: 280px;
 }
 

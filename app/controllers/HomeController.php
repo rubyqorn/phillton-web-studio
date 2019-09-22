@@ -65,8 +65,8 @@ class HomeController extends Controller
 	*/ 
 	public function auth()
 	{
-		$title = 'Войти';
-		return $this->view->render('login', compact('title'));
+		$title = 'Войти | Регистрация';
+		return $this->view->render('auth', compact('title'));
 	}
 
 	/**
@@ -77,7 +77,7 @@ class HomeController extends Controller
 	*/ 
 	public function login()
 	{
-		if ($this->user->login() == TRUE) {
+		if ($this->user->login()) {
 			return header('Location: /panel/index');
 		}
 	}
@@ -89,8 +89,8 @@ class HomeController extends Controller
 	*/ 
 	public function registration()
 	{
-		if ($this->user->registration() == TRUE) {
-			return header('Location: /home/login');
+		if ($this->user->registration()) {
+			return header('Location: /home/auth');
 		}
 	}
 
