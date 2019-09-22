@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Miriam+Libre|Montserrat|Nunito|Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">   
-    <link type="text/css" href="/public/css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
     <title><?php echo $title ?></title>
 </head>
 <body>
 
     <!-- Navigation panel -->
-    <nav class="navbar navbar-expand-lg navbar-light-blue sticky-top w-100">
+    <nav class="navbar navbar-expand-lg navbar-light-blue sticky-top w-100" id="nav">
         <a href="/home/index" class="text-white font-weight-bold mt-1 h3">Phillton</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -48,13 +48,24 @@
                         </small>
                     </a>
                 </li>
-                <li class="navbar-item">
-                    <a href="/home/auth" class="nav-link text-uppercase text-white">
-                        <small>
-                            Войти | Регистрация
-                        </small> 
-                    </a>
-                </li>
+                <?php if(!isset($_SESSION['user'])): ?>
+                    <li class="navbar-item">
+                        <a href="/home/auth" class="nav-link text-uppercase text-white">
+                            <small>
+                                Войти | Регистрация
+                            </small> 
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="navbar-item">
+                        <a href="/home/logout" class="nav-link text-uppercase text-white">
+                            <small>
+                                Выйти
+                            </small>
+                        </a>
+                    </li>
+                <?php endif ?>
+                
             </ul>
         </div>
     </nav>
