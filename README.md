@@ -30,3 +30,16 @@ Here contains all controllers classes which handle http requests, show pages and
 
 ### app/core
 
+This is a core of application. Here contains main classes which responsible for all process in this application. `Controller.php` class we need for controllers which will be extends from this class. Its contains class which responsible for viewing in application. And when we will need to expand our application in terms of functionality we can pass needed classes. `Database.php` class, it's just a class which responsible for connection with database in our application. `Model.php` class also like controller can expand own functionality and is abstraction below database connection. `Paginator.php`,
+the name of this class telling itself for itself. This class responsible for pagination. `Route.php`
+this is router classes which give us a site when we write request in browser. `View.php` class which 
+responsible for templates in our application without it we would just look at white background.
+
+### app/models
+
+There contains classes which responsible for business logic in application. Here contains database manipulations, form handling and etc...
+
+The second main directory is `public/`. Here contains all css styles, javascript code, images and
+configuration files. This is the main access point. The main file `index.php` require `app/config/app.php` and extends all configurations from this file.
+
+The third and finall directory is `views/` where contains all templates of this application. 
